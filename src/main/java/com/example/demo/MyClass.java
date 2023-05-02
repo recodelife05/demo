@@ -22,6 +22,7 @@ public class MyClass {
         DisplayResultIfNumbersAreBetweenZeroAndOne();
 
         //Please settle ur payments on my GCASH. oki S#F#A
+        //joke DONATION only. anything comes from your heart.
     }
 
     //1
