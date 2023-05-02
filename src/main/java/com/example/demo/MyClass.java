@@ -1,6 +1,6 @@
 package com.example.demo;
 
-
+import java.util.*;
 public class MyClass {
     public static void main(String args[]) {
 
@@ -11,16 +11,31 @@ public class MyClass {
         //2. multiply 2 numbers
         //TODO: create an input number 1 and inpunt number 2 to the function of multiply number
         //https://beginnersbook.com/2017/09/java-program-to-read-integer-value-from-the-standard-input/
-        MultiplyNumber(25,25);
+
+        Scanner sc= new Scanner(System.in);
+        System.out.print("Enter first number- ");
+        int a= sc.nextInt();
+        System.out.print("Enter second number- ");
+        int b= sc.nextInt();
+
+        MultiplyNumber(a,b);
 
         //3.) enter the number of times it will multiply.
         //TODO: crete input prompt to user
-        int muliplier = 10;
+        Scanner sc1= new Scanner(System.in);
+        System.out.print("Enter size of table- ");
+        int sz = sc1.nextInt();
+        int muliplier = sz;
         int size = 10;
         PrintMultiplicationTable(size,muliplier);
 
 
         //4.) 4 number valid numbers other not.
+        //Scanner sc= new Scanner(System.in);
+        //System.out.print("Enter first number- ");
+        //int a= sc.nextInt();
+        //System.out.print("Enter second number- ");
+        //int b= sc.nextInt();
 
         int numbers[] = {25,25,26,25};
         var isValid =  IsValidEqualNumbers(numbers);
