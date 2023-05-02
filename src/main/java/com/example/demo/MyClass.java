@@ -31,16 +31,16 @@ public class MyClass {
 
 
         //4.) 4 number valid numbers other not.
-        //initialized
-        int numbers[] =new int[3];;
+        //initialized 4 numbers to input
+        int sizeOf = 3;
+        int numbers[] =new int[sizeOf];;
         int i = 0;
         //bug here
         Scanner screen4= new Scanner(System.in);
         while(screen4.hasNext()){
 
             System.out.println("Enter the number:- ");
-            int s = sc.nextInt();
-            System.out.print("you have entered: " + s);
+            int s = screen4.nextInt();
            if(i == 3){
                break;
            }
