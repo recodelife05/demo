@@ -21,7 +21,7 @@ public class MyClass {
         //5. double between 0 and 1
         DisplayResultIfNumbersAreBetweenZeroAndOne();
 
-        //Please settle ur payments on my gcash. oki S#F#A
+        //Please settle ur payments on my GCASH. oki S#F#A
     }
 
     //1
