@@ -4,14 +4,37 @@ import java.util.*;
 public class MyClass {
     public static void main(String args[]) {
 
-        //1. LAZY DOG LAZY DOGGIE L
+        //1. LAZY DOG LAZY DOGGIE S#F#A
+        ToLowerCaseString();
+
+        //2. multiply 2 numbers
+        MultiplyTwoNumbers();
+
+        //3.) enter the number of times it will multiply.
+        //TODO: crete input prompt to user
+        CreateMultiplicationTable();
+
+        //4.) 4 number valid numbers other not.
+        //initialized 4 numbers to input
+        DisplayEnterANumbersOfEqualNumbers(3);
+
+        //5. double between 0 and 1
+        DisplayResultIfNumbersAreBetweenZeroAndOne();
+
+        //Please settle ur payments on my gcash. oki S#F#A
+    }
+
+    //1
+    public  static void ToLowerCaseString(){
+        //1. LAZY DOG LAZY DOGGIE S#F#A
         System.out.println("turns string to lower case");
         String text = "THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG";
         System.out.println(text.toLowerCase());
-        //2. multiply 2 numbers
+    }
+
+    //2
+    public  static void MultiplyTwoNumbers(){
         Scanner sc= new Scanner(System.in);
-
-
         System.out.println("Multiply two numbers");
         try {
             System.out.print("Enter first number- ");
@@ -24,10 +47,9 @@ public class MyClass {
         }catch (Exception ex){
             System.out.println("Invalid args " + ex.getMessage());
         }
+    }
 
-
-        //3.) enter the number of times it will multiply.
-        //TODO: crete input prompt to user
+    public  static void CreateMultiplicationTable(){
 
         System.out.println("Multiplication table");
         Scanner sc1= new Scanner(System.in);
@@ -36,13 +58,12 @@ public class MyClass {
         int muliplier = sz;
         int size = 10;
         PrintMultiplicationTable(size,muliplier);
+    }
 
-
-        //4.) 4 number valid numbers other not.
-        //initialized 4 numbers to input
+    public static void DisplayEnterANumbersOfEqualNumbers(int size){
 
         System.out.println("Enter 4 integer numbers are all equal");
-        int sizeOf = 3;
+        int sizeOf = size;
         int numbers[] =new int[sizeOf];;
         int i = 0;
         //bug here
@@ -51,22 +72,20 @@ public class MyClass {
         while(screen4.hasNext()){
             System.out.println("Enter the next number:- ");
             int s = screen4.nextInt();
-           if(i == 3){
-               break;
-           }
+            if(i == 3){
+                break;
+            }
             numbers[i] = s;
             System.out.println("you have entered: " + numbers[i]);
 
-           i++;
+            i++;
         }
-
-       // int numbers[] = {25,25,26,25};
-
+        // int numbers[] = {25,25,26,25};
         var isValid =  IsValidEqualNumbers(numbers);
         PrintAnswer(isValid);
+    }
 
-
-        //5. double between 0 and 1
+    public  static void DisplayResultIfNumbersAreBetweenZeroAndOne(){
         System.out.println("Enter a double number between 0 and 1");
         Scanner screen5 = new Scanner(System.in);
         System.out.println("Enter the 1st number:- ");
@@ -75,8 +94,6 @@ public class MyClass {
         double d2 = screen5.nextDouble();
         double dNumbers[] = {d1,d2};
         TestDNumbers(dNumbers);
-
-
     }
 
     //test double numbers.
