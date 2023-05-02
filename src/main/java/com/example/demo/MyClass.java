@@ -5,23 +5,31 @@ public class MyClass {
     public static void main(String args[]) {
 
         //1. LAZY DOG LAZY DOGGIE L
+        System.out.println("turns string to lower case");
         String text = "THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG";
-
         System.out.println(text.toLowerCase());
         //2. multiply 2 numbers
-        //TODO: create an input number 1 and inpunt number 2 to the function of multiply number
-        //https://beginnersbook.com/2017/09/java-program-to-read-integer-value-from-the-standard-input/
-
         Scanner sc= new Scanner(System.in);
-        System.out.print("Enter first number- ");
-        int a= sc.nextInt();
-        System.out.print("Enter second number- ");
-        int b= sc.nextInt();
 
-        MultiplyNumber(a,b);
+
+        System.out.println("Multiply two numbers");
+        try {
+            System.out.print("Enter first number- ");
+            int a= sc.nextInt();
+            System.out.print("Enter second number- ");
+            int b= sc.nextInt();
+
+            MultiplyNumber(a,b);
+
+        }catch (Exception ex){
+            System.out.println("Invalid args " + ex.getMessage());
+        }
+
 
         //3.) enter the number of times it will multiply.
         //TODO: crete input prompt to user
+
+        System.out.println("Multiplication table");
         Scanner sc1= new Scanner(System.in);
         System.out.print("Enter size of table- ");
         int sz = sc1.nextInt();
@@ -32,14 +40,16 @@ public class MyClass {
 
         //4.) 4 number valid numbers other not.
         //initialized 4 numbers to input
+
+        System.out.println("Enter 4 integer numbers are all equal");
         int sizeOf = 3;
         int numbers[] =new int[sizeOf];;
         int i = 0;
         //bug here
         Scanner screen4= new Scanner(System.in);
+        System.out.println("Enter the number:- ");
         while(screen4.hasNext()){
-
-            System.out.println("Enter the number:- ");
+            System.out.println("Enter the next number:- ");
             int s = screen4.nextInt();
            if(i == 3){
                break;
@@ -51,12 +61,13 @@ public class MyClass {
         }
 
        // int numbers[] = {25,25,26,25};
+
         var isValid =  IsValidEqualNumbers(numbers);
         PrintAnswer(isValid);
 
 
         //5. double between 0 and 1
-
+        System.out.println("Enter a double number between 0 and 1");
         Scanner screen5 = new Scanner(System.in);
         System.out.println("Enter the 1st number:- ");
         double d1 = screen5.nextDouble();
