@@ -31,19 +31,38 @@ public class MyClass {
 
 
         //4.) 4 number valid numbers other not.
-        //Scanner sc= new Scanner(System.in);
-        //System.out.print("Enter first number- ");
-        //int a= sc.nextInt();
-        //System.out.print("Enter second number- ");
-        //int b= sc.nextInt();
+        //initialized
+        int numbers[] =new int[3];;
+        int i = 0;
+        //bug here
+        Scanner screen4= new Scanner(System.in);
+        while(screen4.hasNext()){
 
-        int numbers[] = {25,25,26,25};
+            System.out.println("Enter the number:- ");
+            int s = sc.nextInt();
+            System.out.print("you have entered: " + s);
+           if(i == 3){
+               break;
+           }
+            numbers[i] = s;
+            System.out.println("you have entered: " + numbers[i]);
+
+           i++;
+        }
+
+       // int numbers[] = {25,25,26,25};
         var isValid =  IsValidEqualNumbers(numbers);
         PrintAnswer(isValid);
 
 
         //5. double between 0 and 1
-        double dNumbers[] = {-0.5,2.6};
+
+        Scanner screen5 = new Scanner(System.in);
+        System.out.println("Enter the 1st number:- ");
+        double d1 = screen5.nextDouble();
+        System.out.println("Enter the 2nd number:- ");
+        double d2 = screen5.nextDouble();
+        double dNumbers[] = {d1,d2};
         TestDNumbers(dNumbers);
 
 
@@ -97,13 +116,12 @@ public class MyClass {
     //enter four number all are equals.
     public static boolean IsValidEqualNumbers(int[] numbers){
         boolean isValid = true;
-        int sum = 0;
-
         //iterates input numbers
         for(int i = 0; i < numbers.length - 1; i++){
 
             // compares the current number to next number if not equal return false, break the loop;
             // i + 1 is the next number on the array.
+            System.out.println(numbers[i] + " !=  " + numbers[i + 1]);
             if(numbers[i] != numbers[i + 1]){
                 isValid = false;
                 break;
@@ -111,6 +129,25 @@ public class MyClass {
         }
         return isValid;
     }
+
+    ////public static boolean IsValidEqualNumbers(List<Integer> numbers){
+    //    boolean isValid = true;
+   //     int sum = 0;
+
+    //    numbers.stream().allMatch(r numbers.get(0))
+
+        //iterates input numbers
+   //     for(int i = 0; i < numbers. - 1; i++){
+
+            // compares the current number to next number if not equal return false, break the loop;
+            // i + 1 is the next number on the array.
+   //         if(numbers[i] != numbers[i + 1]){
+   //             isValid = false;
+   //             break;
+   //         }
+   //     }
+   //     return isValid;
+    //}
 
     //format of if inputted numbers are eqal or not.
     public static void PrintAnswer(boolean IsValid){
