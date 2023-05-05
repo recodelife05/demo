@@ -4,14 +4,13 @@ import java.util.*;
 public class MyClass {
     public static void main(String args[]) {
 
-        //1. LAZY DOG LAZY DOGGIE S#F#A
+        //1.
         ToLowerCaseString();
 
         //2. multiply 2 numbers
         MultiplyTwoNumbers();
 
         //3.) enter the number of times it will multiply.
-        //TODO: crete input prompt to user
         CreateMultiplicationTable();
 
         //4.) 4 number valid numbers other not.
@@ -21,16 +20,15 @@ public class MyClass {
         //5. double between 0 and 1
         DisplayResultIfNumbersAreBetweenZeroAndOne();
 
-        //Please settle ur payments on my GCASH. oki S#F#A
-        //joke DONATION only. anything comes from your heart.
     }
 
     //1
     public  static void ToLowerCaseString(){
-        //1. LAZY DOG LAZY DOGGIE S#F#A
         System.out.println("turns string to lower case");
-        String text = "THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG";
-        System.out.println(text.toLowerCase());
+        System.out.println("Enter a upper case string: ");
+        Scanner sc = new Scanner(System.in);
+        String input = sc.nextLine();
+        System.out.println(input.toLowerCase());
     }
 
     //2
