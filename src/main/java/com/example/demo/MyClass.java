@@ -53,10 +53,9 @@ public class MyClass {
         System.out.println("Multiplication table");
         Scanner sc1= new Scanner(System.in);
         System.out.print("Enter size of table- ");
-        int sz = sc1.nextInt();
-        int muliplier = sz;
+        int multiplier = sc1.nextInt();
         int size = 10;
-        PrintMultiplicationTable(size,muliplier);
+        PrintMultiplicationTable(size,multiplier);
     }
 
     public static void DisplayEnterANumbersOfEqualNumbers(int size){
