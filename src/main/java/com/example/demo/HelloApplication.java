@@ -6,20 +6,36 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.lang.module.Configuration;
+import java.util.Scanner;
 
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
-        stage.setScene(scene);
-        stage.show();
+        Scanner  scanner = new Scanner(System.in);
+        AppConfiguration configuration = new AppConfiguration();
+        configuration.IsPersist = true;
+        LibraryManagement libraryManagement = new LibraryManagement(scanner,configuration);
+        libraryManagement.RunProgram();
+
+        //FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        //Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        //stage.setTitle("Hello!");
+        //stage.setScene(scene);
+        //stage.show();
     }
 
     public class MyClass {
         public static void main(String args[]) {
 
+
+
+
+
+
+        }
+
+        public  void RunSomething(){
             //1. LAZY DOG LAZY DOGGIE L
             String text = "THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG";
 
@@ -46,8 +62,6 @@ public class HelloApplication extends Application {
             //5. double between 0 and 1
             double dNumbers[] = {-0.5,2.6};
             TestDNumbers(dNumbers);
-
-
         }
 
         //test double numbers.
