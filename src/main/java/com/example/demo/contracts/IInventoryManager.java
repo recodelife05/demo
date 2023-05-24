@@ -6,4 +6,5 @@ public interface IInventoryManager {
     void DecreasedInventory();
     void AddInventory();
     void RemovedInventory();
+    void DisplayAll();
 }
