@@ -5,6 +5,6 @@ public interface IInventoryManager {
     void IncreasedInventory();
     void DecreasedInventory();
     void AddInventory();
-    void RemovedInventory();
+    void RemovedInventory(Integer Id);
     void DisplayAll();
 }
