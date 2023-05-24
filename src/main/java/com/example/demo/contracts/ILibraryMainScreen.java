@@ -1,8 +1,8 @@
 package com.example.demo.contracts;
 
-import com.example.demo.application.LibraryMainScreen;
+import com.example.demo.screen.LibraryMainScreen;
 
-public interface ILibraryMainScreen {
+public interface ILibraryMainScreen extends  IMainScreen {
 
     void DisplayMainScreen();
     void DisplayEndScreen();

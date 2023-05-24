@@ -1,11 +1,18 @@
 package com.example.demo;
 
-import com.example.demo.application.LibraryMainScreen;
-import com.example.demo.application.LibraryManagement;
+import com.example.demo.application.Main;
+import com.example.demo.application.inventory.InventoryManagement;
+import com.example.demo.contracts.IInventoryMainScreen;
+import com.example.demo.contracts.IMainProgramScreen;
+import com.example.demo.contracts.IMainScreen;
+import com.example.demo.screen.InventoryMainScreen;
+import com.example.demo.screen.LibraryMainScreen;
+import com.example.demo.application.library.LibraryManagement;
 import com.example.demo.infrastructure.contracts.IDataProvider;
 import com.example.demo.contracts.ILibraryMainScreen;
 import com.example.demo.infrastructure.DataProvider;
 import com.example.demo.models.AppConfiguration;
+import com.example.demo.screen.MainProgramScreen;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -15,14 +22,9 @@ import java.util.Scanner;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        Scanner  scanner = new Scanner(System.in);
-        AppConfiguration configuration = new AppConfiguration();
-        IDataProvider dataProvider = new DataProvider();
-        ILibraryMainScreen mainScreen = new LibraryMainScreen();
-        configuration.IsPersist = true;
-        LibraryManagement libraryManagement =  new LibraryManagement(scanner,configuration,dataProvider,mainScreen);
-        libraryManagement.RunProgram();
 
+        var app = new com.example.demo.Application();
+        app.Start();
     }
 
     public class MyClass {

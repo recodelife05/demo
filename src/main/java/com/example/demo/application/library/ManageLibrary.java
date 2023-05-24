@@ -1,4 +1,4 @@
-package com.example.demo.application;
+package com.example.demo.application.library;
 
 import com.example.demo.infrastructure.contracts.IDataProvider;
 import com.example.demo.contracts.IManageLibrary;

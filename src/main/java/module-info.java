@@ -17,4 +17,10 @@ module com.example.demo {
     opens com.example.demo.archive to javafx.fxml;
     exports com.example.demo.infrastructure.contracts;
     opens com.example.demo.infrastructure.contracts to javafx.fxml;
+    exports com.example.demo.screen;
+    opens com.example.demo.screen to javafx.fxml;
+    exports com.example.demo.application.inventory;
+    opens com.example.demo.application.inventory to javafx.fxml;
+    exports com.example.demo.application.library;
+    opens com.example.demo.application.library to javafx.fxml;
 }

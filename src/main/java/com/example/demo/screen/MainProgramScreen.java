@@ -1,13 +1,21 @@
-package com.example.demo.application;
+package com.example.demo.screen;
 
-import com.example.demo.contracts.ILibraryMainScreen;
+import com.example.demo.contracts.IMainProgramScreen;
+import com.example.demo.infrastructure.ValidationHelper;
 
+import java.util.Scanner;
 import java.util.stream.Stream;
 
-public class LibraryMainScreen implements ILibraryMainScreen {
+public class MainProgramScreen implements IMainProgramScreen {
 
+    public Character PromptUserInput(Scanner sc){
+        var userInput = sc.nextLine();
+        var IsValid = false;
+        IsValid = ValidationHelper.Validate(userInput);
+        return userInput.toUpperCase().charAt(0);
+    }
     public void DisplayMainScreen(){
-        LibraryActions.stream().
+        ApplicationSystem.stream().
                 forEach(r -> System.out.println("Press <" + r.getIdentifier() + "> to " + r.description));
     }
     public void DisplayEndScreen() {
@@ -18,17 +26,11 @@ public class LibraryMainScreen implements ILibraryMainScreen {
     }
     @Override
     public void DisplayErrorScreen() { System.out.println("Something went wrong."); }
-
-    public enum LibraryActions {
-        ADDBOOK('A',"Add a Book"),
-        BORROWBOOK('B',"Borrow a Book"),
-        RETURNEDBOOK('C',"Return a Book"),
-        REMOVEDBOOK('D',"Removed a Book"),
-        LISTRETURNEDBOOKS('E',"List of Books Returned/Shelf"),
-        LISTOFBORROWEDBOOKS('F',"List of Borrowed Books"),
-        DISPLAYALLBOOKS('G',"List of All Books"),
+    public enum ApplicationSystem {
+        LIBRARYSYSTEM('A',"LIBRARY SYSTEM"),
+        INVENTORYSYSTEM('B',"INVENTORY SYSTEM"),
         EXITPROGRAM('X',"Exit Program");
-        LibraryActions(Character identifier,String description){
+        ApplicationSystem(Character identifier,String description){
             this.identifier = identifier;
             this.description = description;
         };
@@ -37,9 +39,8 @@ public class LibraryMainScreen implements ILibraryMainScreen {
         public Character getIdentifier(){
             return  identifier;
         }
-
-        public static Stream<LibraryActions> stream() {
-            return Stream.of(LibraryActions.values());
+        public static Stream<ApplicationSystem> stream() {
+            return Stream.of(ApplicationSystem.values());
         }
 
     }

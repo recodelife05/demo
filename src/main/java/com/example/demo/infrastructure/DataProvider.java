@@ -3,6 +3,8 @@ package com.example.demo.infrastructure;
 import com.example.demo.infrastructure.contracts.IDataProvider;
 import com.example.demo.models.Availability;
 import com.example.demo.models.Book;
+import com.example.demo.models.Inventory;
+import com.example.demo.models.StockLevel;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -11,6 +13,7 @@ import java.util.ArrayList;
 
 public class DataProvider implements IDataProvider {
     ArrayList<Book> listOfBooks = new ArrayList<Book>();
+    ArrayList<Inventory> inventories = new ArrayList<Inventory>();
     @Override
     public ArrayList<Book> GetRecords() {
         System.out.println("Initializing Library System");
@@ -50,6 +53,24 @@ public class DataProvider implements IDataProvider {
             e.printStackTrace();
         }
         return  listOfBooks;
+    }
+
+    public  ArrayList<Inventory> GetInventories(){
+        System.out.println("Initializing Inventory System");
+        System.out.println("Adding Inventories on the system");
+
+        Inventory inv = new Inventory(1,100,"T-Shirts");
+        Inventory inv1 = new Inventory(2,0,"Shorts");
+        Inventory inv2 = new Inventory(3,4,"Caps");
+        Inventory inv3 = new Inventory(4,50,"Underwear");
+        Inventory inv4 = new Inventory(5,76,"Nike Air force 1");
+        inventories.add(inv);
+        inventories.add(inv1);
+        inventories.add(inv2);
+        inventories.add(inv3);
+        inventories.add(inv4);
+
+        return  inventories;
     }
 
 }
