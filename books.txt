@@ -1,0 +1,7 @@
+1,Ninja Javascript,John Resig,RETURNED
+2,Book 2,Author 2,RETURNED
+3,Book 3,Author 3,RETURNED
+4,Book 4,Author 3,BORROWED
+5,Book 5,Author 4",BORROWED
+6,Bitcoin Is Hard Money,Safein Dein",RETURNED
+7,Book 5,Author 4",BORROWED
