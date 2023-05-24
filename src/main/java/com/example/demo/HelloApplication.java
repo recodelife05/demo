@@ -14,15 +14,12 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
         Scanner  scanner = new Scanner(System.in);
         AppConfiguration configuration = new AppConfiguration();
+        IDataProvider dataProvider = new DataProvider();
+        ILibraryMainScreen mainScreen = new LibraryMainScreen();
         configuration.IsPersist = true;
-        LibraryManagement libraryManagement = new LibraryManagement(scanner,configuration);
+        LibraryManagement libraryManagement =  new LibraryManagement(scanner,configuration,dataProvider,mainScreen);
         libraryManagement.RunProgram();
 
-        //FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        //Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        //stage.setTitle("Hello!");
-        //stage.setScene(scene);
-        //stage.show();
     }
 
     public class MyClass {
