@@ -37,20 +37,6 @@ public class ManageLibrary implements  IManageLibrary {
             DisplayBooks(Availability.RETURNED);
         }
     }
-    public  void DisplayBooks(Availability status){
-        System.out.println("LIST OF " + status.toString() + " BOOKS");
-        listOfBooks.stream()
-                .filter(c -> c.Status == status)
-                .map(r -> "Book Id: " + r.Id.toString() + " Title: " + r.Title + ", Author: "  + r.AuthorName)
-                .forEach(p ->  System.out.println(p));
-    }
-
-    public void DisplayAllBooks(){
-        System.out.println("LIST OF ALL BOOKS");
-        listOfBooks.stream()
-                .map(r -> "Book Id: " + r.Id.toString() + " Title: " + r.Title + ", Status: " +  r.Status + ", Author: "  + r.AuthorName)
-                .forEach(p ->  System.out.println(p));
-    }
     public   void  RemoveBook(){
         System.out.println("Please enter the book id:");
         Scanner scan = new Scanner(System.in);
@@ -85,7 +71,19 @@ public class ManageLibrary implements  IManageLibrary {
         }
 
     }
-    //validations
+    public  void DisplayBooks(Availability status){
+        System.out.println("LIST OF " + status.toString() + " BOOKS");
+        listOfBooks.stream()
+                .filter(c -> c.Status == status)
+                .map(r -> "Book Id: " + r.Id.toString() + " Title: " + r.Title + ", Author: "  + r.AuthorName)
+                .forEach(p ->  System.out.println(p));
+    }
+    public void DisplayAllBooks(){
+        System.out.println("LIST OF ALL BOOKS");
+        listOfBooks.stream()
+                .map(r -> "Book Id: " + r.Id.toString() + " Title: " + r.Title + ", Status: " +  r.Status + ", Author: "  + r.AuthorName)
+                .forEach(p ->  System.out.println(p));
+    }
 
 
 }

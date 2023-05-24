@@ -15,7 +15,7 @@ public class LibraryManagement extends ManageLibrary {
     }
     private void RunLibrary(Character input){
         var ACTIONS = _mainScreen.ACTIONS;
-        if(ACTIONS.ADDBOOK.getIdentifier() == input){
+        if(ACTIONS.getIdentifier() == input){
             AddBook();
         }else if(ACTIONS.REMOVEDBOOK.getIdentifier() == input) {
             RemoveBook();
@@ -31,6 +31,7 @@ public class LibraryManagement extends ManageLibrary {
             DisplayAllBooks();
         } else if(ACTIONS.EXITPROGRAM.getIdentifier() == input) {
             _mainScreen.DisplayEndScreen();
+            System.exit(1);
         }else {
             _mainScreen.DisplayInvalidScreen();
         }
@@ -63,7 +64,6 @@ public class LibraryManagement extends ManageLibrary {
             return true;
         }
     }
-
 
 }
 
