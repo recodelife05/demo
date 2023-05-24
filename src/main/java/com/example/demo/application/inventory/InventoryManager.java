@@ -49,8 +49,7 @@ public class InventoryManager implements IInventoryManager {
 
     }
 
-    @Override
-    public void RemovedInventory() {
-
+    public void RemovedInventory(Integer inventoryId) {
+        datasource.remove(inventoryId - 1);
     }
 }
