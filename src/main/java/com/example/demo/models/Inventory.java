@@ -22,4 +22,8 @@ public class Inventory {
              return StockLevel.Available;
          }
     };
+
+    public static Inventory ToEntity(Integer quantity,String name){
+        return  new Inventory(0,quantity,name);
+    }
 }

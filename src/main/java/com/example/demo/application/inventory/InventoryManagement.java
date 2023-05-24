@@ -3,6 +3,8 @@ import com.example.demo.contracts.IInventoryMainScreen;
 import com.example.demo.infrastructure.ValidationHelper;
 import com.example.demo.infrastructure.contracts.IDataProvider;
 import com.example.demo.models.AppConfiguration;
+import com.example.demo.models.Book;
+import com.example.demo.models.Inventory;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -22,16 +24,36 @@ public class InventoryManagement extends InventoryManager {
     }
     private void ControlInput(Character input){
         var ACTIONS = _mainScreen.ACTIONS;
-        if(ACTIONS.getIdentifier() == input){
-
+        if(ACTIONS.ADDINVENTORY.getIdentifier() == input){
+            System.out.println("Please enter the inventory name: ");
+            var name = _mainScreen.PromptUserInputString(_scanner);
+            System.out.println("Please enter the quantity:");
+            int quantity = _mainScreen.PromptUserInput(_scanner);
+            var bookToAdd = Inventory.ToEntity(quantity,name);
+            AddInventory(bookToAdd);
+            DisplayAll();
         }else if(ACTIONS.LISTOFINVETORY.getIdentifier() == input) {
             DisplayAll();
+        }else if(ACTIONS.INCREASEDINVENTORY.getIdentifier() == input) {
+            System.out.println("Please enter the Inventory Id:");
+            int id = _mainScreen.PromptUserInput(_scanner);
+            System.out.println("Please enter the quantity:");
+            int quantity = _mainScreen.PromptUserInput(_scanner);
+            IncreasedInventory(id,quantity);
+        }else if(ACTIONS.DECREASEDINVENTORY.getIdentifier() == input) {
+            System.out.println("Please enter the Inventory Id:");
+            int id = _mainScreen.PromptUserInput(_scanner);
+            System.out.println("Please enter the quantity:");
+            int quantity = _mainScreen.PromptUserInput(_scanner);
+            DecresedInventory(id,quantity);
         }else if(ACTIONS.REMOVEDINVENTORY.getIdentifier() == input) {
+            _mainScreen.DisplayPleaseEnterTheInventoryId();
             var id = _mainScreen.PromptUserInput(_scanner);
             if(id == 0){
                 _mainScreen.DisplayInvalidScreen();
             }else {
                 RemovedInventory(id);
+                DisplayAll();
             }
         }else if(ACTIONS.EXITPROGRAM.getIdentifier() == input) {
             _mainScreen.DisplayEndScreen();
@@ -49,8 +71,8 @@ public class InventoryManagement extends InventoryManager {
                 //if valid
                 var IsValid = false;
                 IsValid = ValidationHelper.Validate(input);
-
                 if(IsValid){
+                    System.out.println("you choose:" + input.toUpperCase().charAt(0));
                     ControlInput(input.toUpperCase().charAt(0));
                 }else {
                     _mainScreen.DisplayInvalidScreen();

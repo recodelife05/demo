@@ -24,6 +24,17 @@ public class InventoryMainScreen implements IInventoryMainScreen {
         }
     }
 
+    public String PromptUserInputString(Scanner sc) {
+        var userInput = sc.nextLine();
+        var IsValid = false;
+        IsValid = ValidationHelper.Validate(userInput);
+        if(!IsValid){
+            return userInput;
+        }else {
+            return  "";
+        }
+    }
+
     public  String DisplayImplement(Boolean flag){
         return  flag == true ? "online" : "offline";
     }
@@ -34,6 +45,9 @@ public class InventoryMainScreen implements IInventoryMainScreen {
         System.out.println("Please enter correct choice.");
     }
 
+    public void DisplayPleaseEnterTheInventoryId(){
+        System.out.println("Please enter inventory id.");
+    }
     public void DisplayToContinue() {
         System.out.println("Do you wish to continue: Y/N");
     }
@@ -51,7 +65,7 @@ public class InventoryMainScreen implements IInventoryMainScreen {
         ADDINVENTORY('A',"Add a Inventory",true),
         INCREASEDINVENTORY('B',"Increased Inventory",false),
         DECREASEDINVENTORY('C',"Decreased Inventory",false),
-        REMOVEDINVENTORY('D',"Removed a Inventory",false),
+        REMOVEDINVENTORY('D',"Removed a Inventory",true),
         LISTOFINVETORY('E',"List of Inventory",true),
         EXITPROGRAM('X',"Exit Program",true);
         InventoryActions(Character identifier,String description,Boolean IsImplemented){

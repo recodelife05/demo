@@ -9,6 +9,7 @@ import com.example.demo.models.Inventory;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class InventoryManager implements IInventoryManager {
@@ -34,21 +35,33 @@ public class InventoryManager implements IInventoryManager {
     }
 
 
-    @Override
-    public void IncreasedInventory() {
-
+    public void IncreasedInventory(Integer inventoryId,Integer IncreasedBy) {
+           var inventory = GetById(inventoryId);
+            if(inventory != null){
+                inventory.Quantity += IncreasedBy;
+            }
     }
 
-    @Override
-    public void DecreasedInventory() {
-
+    public void DecresedInventory(Integer inventoryId,Integer DecreasedBy) {
+        var inventory = GetById(inventoryId);
+        if(inventory != null){
+            inventory.Quantity -= DecreasedBy;
+        }
     }
 
-    @Override
-    public void AddInventory() {
+    public void AddInventory(Inventory inventory) {
+        inventory.Id = GetLatestSeedId() + 1;
+        datasource.add(inventory);
     }
     public void RemovedInventory(Integer inventoryId) {
         var inventoryToRemoved = datasource.stream().filter(r -> r.Id == inventoryId).findFirst().get();
         datasource.remove(inventoryToRemoved);
+    }
+
+    private Inventory GetById(Integer inventoryId){
+        return  datasource.stream().filter(r->r.Id == inventoryId).findFirst().get();
+    }
+    private Integer GetLatestSeedId(){
+       return  datasource.stream().map(r-> r.Id).max(Integer::compare).get();
     }
 }
