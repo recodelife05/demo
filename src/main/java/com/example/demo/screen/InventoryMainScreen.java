@@ -33,6 +33,18 @@ public class InventoryMainScreen implements IInventoryMainScreen {
     public void DisplayInvalidScreen(){
         System.out.println("Please enter correct choice.");
     }
+
+    public void DisplayToContinue() {
+        System.out.println("Do you wish to continue: Y/N");
+    }
+
+    public  void DisplayExitingProgram() throws InterruptedException {
+        System.out.println("Exiting in 5 seconds");
+        long WAIT_TIME = 5000;
+        Thread.sleep(WAIT_TIME);
+        System.out.println("Thank you!");
+        System.exit(1);
+    }
     @Override
     public void DisplayErrorScreen() { System.out.println("Something went wrong."); }
     public enum InventoryActions {

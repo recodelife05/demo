@@ -6,7 +6,8 @@ import java.util.Scanner;
 
 public interface  IInventoryMainScreen extends IMainScreen {
 
-
-    Integer PromptUserInput(Scanner sc);
+    void DisplayToContinue();
+    void DisplayExitingProgram() throws InterruptedException;
+    Integer PromptUserInput(Scanner scanner);
     InventoryMainScreen.InventoryActions ACTIONS = InventoryMainScreen.InventoryActions.INCREASEDINVENTORY;
 }

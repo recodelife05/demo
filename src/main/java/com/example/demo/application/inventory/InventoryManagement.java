@@ -58,25 +58,14 @@ public class InventoryManagement extends InventoryManager {
             }
         }catch (Exception ex){
             _mainScreen.DisplayErrorScreen();
-            System.out.println("Do you wish to continue: Y/N");
+            _mainScreen.DisplayToContinue();
             var answer =  sc.nextLine();
-
             if(answer.toString().isBlank() || answer.toString().isEmpty() || answer.equals(null)){
-                System.out.println("Exiting in 5 seconds");
-                long waittime = 5000;
-                Thread.sleep(waittime);
-                System.out.println("Thank you!");
-                System.exit(1);
-            }
-
-            if(answer.charAt(0) == 'Y'){
+                _mainScreen.DisplayExitingProgram();
+            }else if(answer.charAt(0) == 'Y'){
                 ControlFlow(sc);
             }else {
-                System.out.println("Exiting in 5 seconds");
-                long waittime = 5000;
-                System.out.wait(waittime);
-                System.out.println("Thank you!");
-                System.exit(1);
+                _mainScreen.DisplayExitingProgram();
             }
         }
     }
