@@ -48,7 +48,7 @@ public class ManageLibrary implements  IManageLibrary {
     public void DisplayAllBooks(){
         System.out.println("LIST OF ALL BOOKS");
         listOfBooks.stream()
-                .map(r -> "Book Id: " + r.Id.toString() + " Title: " + r.Title + "Status: " +  r.Status + ", Author: "  + r.AuthorName)
+                .map(r -> "Book Id: " + r.Id.toString() + " Title: " + r.Title + ", Status: " +  r.Status + ", Author: "  + r.AuthorName)
                 .forEach(p ->  System.out.println(p));
     }
     public   void  RemoveBook(){
