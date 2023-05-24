@@ -1,12 +1,18 @@
-package com.example.demo;
+package com.example.demo.application;
+import com.example.demo.infrastructure.ValidationHelper;
+import com.example.demo.infrastructure.contracts.IDataProvider;
+import com.example.demo.contracts.ILibraryMainScreen;
+import com.example.demo.models.AppConfiguration;
+import com.example.demo.models.Availability;
+
 import java.io.*;
 import java.util.*;
 
 public class LibraryManagement extends ManageLibrary {
     private static Scanner _scanner;
     private ILibraryMainScreen _mainScreen;
-    LibraryManagement(Scanner scanner,AppConfiguration appConfig,
-                      IDataProvider dataProvider,ILibraryMainScreen mainScreen) throws IOException {
+    public LibraryManagement(Scanner scanner, AppConfiguration appConfig,
+                             IDataProvider dataProvider, ILibraryMainScreen mainScreen) throws IOException {
         super(appConfig,scanner,dataProvider);
         _scanner = scanner;
         _mainScreen = mainScreen;

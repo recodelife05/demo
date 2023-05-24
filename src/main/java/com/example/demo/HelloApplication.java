@@ -1,12 +1,15 @@
 package com.example.demo;
 
+import com.example.demo.application.LibraryMainScreen;
+import com.example.demo.application.LibraryManagement;
+import com.example.demo.infrastructure.contracts.IDataProvider;
+import com.example.demo.contracts.ILibraryMainScreen;
+import com.example.demo.infrastructure.DataProvider;
+import com.example.demo.models.AppConfiguration;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.lang.module.Configuration;
 import java.util.Scanner;
 
 public class HelloApplication extends Application {

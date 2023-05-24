@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.archive;
 
 import java.util.*;
 public class MyClass {
@@ -155,25 +155,6 @@ public class MyClass {
         }
         return isValid;
     }
-
-    ////public static boolean IsValidEqualNumbers(List<Integer> numbers){
-    //    boolean isValid = true;
-   //     int sum = 0;
-
-    //    numbers.stream().allMatch(r numbers.get(0))
-
-        //iterates input numbers
-   //     for(int i = 0; i < numbers. - 1; i++){
-
-            // compares the current number to next number if not equal return false, break the loop;
-            // i + 1 is the next number on the array.
-   //         if(numbers[i] != numbers[i + 1]){
-   //             isValid = false;
-   //             break;
-   //         }
-   //     }
-   //     return isValid;
-    //}
 
     //format of if inputted numbers are eqal or not.
     public static void PrintAnswer(boolean IsValid){

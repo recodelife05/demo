@@ -1,4 +1,6 @@
-package com.example.demo;
+package com.example.demo.infrastructure.contracts;
+
+import com.example.demo.models.Book;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.infrastructure;
 
 public class ValidationHelper {
     public static Boolean Validate(String someText){

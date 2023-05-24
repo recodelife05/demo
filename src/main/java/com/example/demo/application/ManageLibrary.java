@@ -1,15 +1,21 @@
-package com.example.demo;
+package com.example.demo.application;
+
+import com.example.demo.infrastructure.contracts.IDataProvider;
+import com.example.demo.contracts.IManageLibrary;
+import com.example.demo.models.AppConfiguration;
+import com.example.demo.models.Availability;
+import com.example.demo.models.Book;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class ManageLibrary implements  IManageLibrary {
+public class ManageLibrary implements IManageLibrary {
 
     ArrayList<Book> listOfBooks = new ArrayList<Book>();
     IDataProvider _dataProvider;
     Scanner _scanner;
-    ManageLibrary(AppConfiguration config,Scanner scanner, IDataProvider provider) throws IOException {
+    ManageLibrary(AppConfiguration config, Scanner scanner, IDataProvider provider) throws IOException {
         _dataProvider = provider;
         _scanner = scanner;
         if(config.IsPersist){
@@ -28,7 +34,7 @@ public class ManageLibrary implements  IManageLibrary {
         System.out.println("Please enter the author:");
         var author = _scanner.nextLine();
 
-        var newbook = new Book(newID,title,author,Availability.RETURNED);
+        var newbook = new Book(newID,title,author, Availability.RETURNED);
 
         listOfBooks.add(newbook);
 

@@ -1,4 +1,6 @@
-package com.example.demo;
+package com.example.demo.contracts;
+
+import com.example.demo.application.LibraryMainScreen;
 
 public interface ILibraryMainScreen {
 

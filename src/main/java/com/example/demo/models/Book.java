@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.models;
 
 public class Book {
 
@@ -16,8 +16,4 @@ public class Book {
     public Availability Status;
 }
 
-
- enum Availability {
-     RETURNED, BORROWED;
- }
 

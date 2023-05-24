@@ -1,18 +1,21 @@
-package com.example.demo;
+package com.example.demo.infrastructure;
+
+import com.example.demo.infrastructure.contracts.IDataProvider;
+import com.example.demo.models.Availability;
+import com.example.demo.models.Book;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
-public class DataProvider implements  IDataProvider {
+public class DataProvider implements IDataProvider {
     ArrayList<Book> listOfBooks = new ArrayList<Book>();
     @Override
     public ArrayList<Book> GetRecords() {
         System.out.println("Initializing Library System");
         System.out.println("Adding Books on the system");
-        Book book1 = new Book(1,"Book 1","Author",Availability.BORROWED);
+        Book book1 = new Book(1,"Book 1","Author", Availability.BORROWED);
         Book book3 = new Book(2,"Bitcoin is a Hard Money","Saifeen Dean",Availability.RETURNED);
         Book book2 = new Book(3,"Book 2","Author",Availability.RETURNED);
         Book book4 = new Book(4,"Ninja Javascript","John Stark",Availability.BORROWED);

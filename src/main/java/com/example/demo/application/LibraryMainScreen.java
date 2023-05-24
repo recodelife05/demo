@@ -1,4 +1,6 @@
-package com.example.demo;
+package com.example.demo.application;
+
+import com.example.demo.contracts.ILibraryMainScreen;
 
 import java.util.stream.Stream;
 
@@ -17,7 +19,7 @@ public class LibraryMainScreen implements ILibraryMainScreen {
     @Override
     public void DisplayErrorScreen() { System.out.println("Something went wrong."); }
 
-    enum LibraryActions {
+    public enum LibraryActions {
         ADDBOOK('A',"Add a Book"),
         BORROWBOOK('B',"Borrow a Book"),
         RETURNEDBOOK('C',"Return a Book"),

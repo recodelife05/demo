@@ -1,4 +1,6 @@
-package com.example.demo;
+package com.example.demo.contracts;
+
+import com.example.demo.models.Availability;
 
 public interface IManageLibrary {
 
