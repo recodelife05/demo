@@ -17,7 +17,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void Run(Scanner scanner, AppConfiguration configuration, DataProvider dataProvider,MainProgramScreen mainProgramScreen) throws IOException {
+    public static void Run(Scanner scanner, AppConfiguration configuration, DataProvider dataProvider,MainProgramScreen mainProgramScreen) throws IOException, InterruptedException {
 
         mainProgramScreen.DisplayMainScreen();
         var input = mainProgramScreen.PromptUserInput(scanner);

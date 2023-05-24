@@ -17,7 +17,7 @@ public class InventoryManagement extends InventoryManager {
         _scanner = scanner;
         _mainScreen = mainScreen;
     }
-    public void RunProgram() throws IOException {
+    public void RunProgram() throws IOException, InterruptedException {
         ControlFlow(_scanner);
     }
     private void ControlInput(Character input){
@@ -25,8 +25,14 @@ public class InventoryManagement extends InventoryManager {
         if(ACTIONS.getIdentifier() == input){
 
         }else if(ACTIONS.LISTOFINVETORY.getIdentifier() == input) {
-
             DisplayAll();
+        }else if(ACTIONS.REMOVEDINVENTORY.getIdentifier() == input) {
+            var id = _mainScreen.PromptUserInput(_scanner);
+            if(id == 0){
+                _mainScreen.DisplayInvalidScreen();
+            }else {
+                RemovedInventory(id);
+            }
         }else if(ACTIONS.EXITPROGRAM.getIdentifier() == input) {
             _mainScreen.DisplayEndScreen();
             System.exit(1);
@@ -34,7 +40,7 @@ public class InventoryManagement extends InventoryManager {
             _mainScreen.DisplayInvalidScreen();
         }
     }
-    private void ControlFlow(Scanner sc){
+    private void ControlFlow(Scanner sc) throws InterruptedException {
         try{
             var ACTIONS = _mainScreen.ACTIONS;
             _mainScreen.DisplayMainScreen();
@@ -52,7 +58,26 @@ public class InventoryManagement extends InventoryManager {
             }
         }catch (Exception ex){
             _mainScreen.DisplayErrorScreen();
-            throw ex;
+            System.out.println("Do you wish to continue: Y/N");
+            var answer =  sc.nextLine();
+
+            if(answer.toString().isBlank() || answer.toString().isEmpty() || answer.equals(null)){
+                System.out.println("Exiting in 5 seconds");
+                long waittime = 5000;
+                Thread.sleep(waittime);
+                System.out.println("Thank you!");
+                System.exit(1);
+            }
+
+            if(answer.charAt(0) == 'Y'){
+                ControlFlow(sc);
+            }else {
+                System.out.println("Exiting in 5 seconds");
+                long waittime = 5000;
+                System.out.wait(waittime);
+                System.out.println("Thank you!");
+                System.exit(1);
+            }
         }
     }
 }

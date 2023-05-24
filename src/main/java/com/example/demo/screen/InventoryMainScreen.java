@@ -1,7 +1,9 @@
 package com.example.demo.screen;
 
 import com.example.demo.contracts.IInventoryMainScreen;
+import com.example.demo.infrastructure.ValidationHelper;
 
+import java.util.Scanner;
 import java.util.stream.Stream;
 
 public class InventoryMainScreen implements IInventoryMainScreen {
@@ -9,6 +11,17 @@ public class InventoryMainScreen implements IInventoryMainScreen {
        InventoryActions.stream().
                  map(r -> "Press <" + r.getIdentifier() + "> to " + r.description + " (" + DisplayImplement(r.IsImplemented) + ")").
                 forEach(o -> System.out.println(o));
+    }
+
+    public Integer PromptUserInput(Scanner sc){
+        var userInput = sc.nextLine();
+        var IsValid = false;
+        IsValid = ValidationHelper.Validate(userInput);
+        if(!IsValid){
+            return Integer.parseInt(userInput);
+        }else {
+            return  0;
+        }
     }
 
     public  String DisplayImplement(Boolean flag){

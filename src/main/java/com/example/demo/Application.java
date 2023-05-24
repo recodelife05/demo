@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 public class Application {
 
-    void Start() throws IOException {
+    void Start() throws IOException, InterruptedException {
         Scanner scanner = new Scanner(System.in);
         AppConfiguration configuration = new AppConfiguration();
         IDataProvider dataProvider = new DataProvider();

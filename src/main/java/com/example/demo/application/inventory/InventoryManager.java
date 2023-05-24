@@ -46,10 +46,9 @@ public class InventoryManager implements IInventoryManager {
 
     @Override
     public void AddInventory() {
-
     }
-
     public void RemovedInventory(Integer inventoryId) {
-        datasource.remove(inventoryId - 1);
+        var inventoryToRemoved = datasource.stream().filter(r -> r.Id == inventoryId).findFirst().get();
+        datasource.remove(inventoryToRemoved);
     }
 }
