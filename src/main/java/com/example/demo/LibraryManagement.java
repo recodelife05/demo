@@ -5,7 +5,8 @@ import java.util.*;
 public class LibraryManagement extends ManageLibrary {
     private static Scanner _scanner;
     private ILibraryMainScreen _mainScreen;
-    LibraryManagement(Scanner scanner,AppConfiguration appConfig,IDataProvider dataProvider,ILibraryMainScreen mainScreen) throws IOException {
+    LibraryManagement(Scanner scanner,AppConfiguration appConfig,
+                      IDataProvider dataProvider,ILibraryMainScreen mainScreen) throws IOException {
         super(appConfig,scanner,dataProvider);
         _scanner = scanner;
         _mainScreen = mainScreen;
@@ -13,7 +14,7 @@ public class LibraryManagement extends ManageLibrary {
     public void RunProgram() throws IOException {
         ControlFlow(_scanner);
     }
-    private void RunLibrary(Character input){
+    private void ControlInput(Character input){
         var ACTIONS = _mainScreen.ACTIONS;
         if(ACTIONS.getIdentifier() == input){
             AddBook();
@@ -43,10 +44,10 @@ public class LibraryManagement extends ManageLibrary {
                 var input = sc.nextLine();
                 //if valid
                 var IsValid = false;
-                IsValid = TryParseInt(input);
+                IsValid = ValidationHelper.Validate(input);
 
                 if(IsValid){
-                    RunLibrary(input.toUpperCase().charAt(0));
+                    ControlInput(input.toUpperCase().charAt(0));
                 }else {
                     _mainScreen.DisplayInvalidScreen();
                 }
@@ -54,14 +55,6 @@ public class LibraryManagement extends ManageLibrary {
         }catch (Exception ex){
             _mainScreen.DisplayErrorScreen();
             throw ex;
-        }
-    }
-    private Boolean TryParseInt(String someText) {
-        try {
-            int parseInt =  Integer.parseInt(someText);
-            return false;
-        } catch (NumberFormatException ex) {
-            return true;
         }
     }
 
